@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    {{ links }}
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{ description }}" />
+    <meta name="keywords" content="{{ keywords }}" />
+    {{ metas }}
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <ul>
+          <li id="version">
+            <a href="{{ releases }}">{{ version }}</a>
+          </li>
+          <li id="npm">
+            <a href="{{ npm }}">npm</a>
+          </li>
+          <li id="repo">
+            <a href="{{ repo }}">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <header>
+      <div class="container">
+        <h1>{{ name }}</h1>
+        <p class="description">{{ description }}</p>
+        <p>
+          <a href="{{ repo }}" class="documentation">Documentation</a>
+        </p>
+      </div>
+    </header>
+    <main class="container">
+      <h2>Try it out</h2>
+      <noscript>
+        <div class="error">
+          <h1>JavaScript is disabled</h1>
+          <p>It looks like you have JavaScript disabled.</p>
+          <p>You need JavaScript to be enabled to view the demo.</p>
+        </div>
+      </noscript>
+      <form onsubmit="return parseHtml();">
+        <label>
+          <span>Base URL</span>
+          <input type="text" name="base-url" id="base-url" />
+        </label>
+
+        <label>
+          <span>HTML</span>
+          <textarea name="html" id="html"></textarea>
+        </label>
+
+        <h3>Experimental options</h3>
+        <p class="experimental">
+          <label>
+            <input type="checkbox" name="lang" id="lang" value="true" checked />
+            <span>Language parsing</span>
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="textContent"
+              id="textContent"
+              value="true"
+              checked
+            />
+            <span>Better text content</span>
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="metaformats"
+              id="metaformats"
+              value="true"
+              checked
+            />
+            <span>Metaformats parsing</span>
+          </label>
+        </p>
+
+        <div class="submit">
+          <button type="submit">Parse</button>
+        </div>
+        <div class="error hide" id="error"></div>
+      </form>
+      <div class="result">
+        <h2>Output</h2>
+        <pre id="result"></pre>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <a href="{{ licenseUrl }}">{{ license }} Licensed</a>
+      </div>
+    </footer>
+    {{ scripts }}
+  </body>
+</html>

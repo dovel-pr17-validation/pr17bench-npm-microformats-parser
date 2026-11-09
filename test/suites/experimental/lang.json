@@ -1,0 +1,68 @@
+{
+  "items": [
+    {
+      "type": ["h-entry"],
+      "lang": "en",
+      "properties": {
+        "name": ["This test is in English."]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "lang": "en",
+      "properties": {
+        "name": ["This test is in English."]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "lang": "es",
+      "properties": {
+        "name": ["Esta prueba está en español."]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "lang": "en",
+      "properties": {
+        "name": ["This test is in English."]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "lang": "en",
+      "properties": {
+        "name": ["This test is in English."]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "lang": "es",
+      "properties": {
+        "name": ["Esta prueba está en español."]
+      }
+    },
+    {
+      "type": ["h-entry"],
+      "lang": "sv",
+      "id": "postfrag123",
+      "properties": {
+        "name": ["En svensk titel"],
+        "content": [
+          {
+            "html": "With an <em>english</em> summary",
+            "value": "With an english summary",
+            "lang": "en"
+          },
+          {
+            "html": "Och <em>svensk</em> huvudtext",
+            "value": "Och svensk huvudtext",
+            "lang": "sv"
+          }
+        ]
+      }
+    }
+  ],
+  "rels": {},
+  "rel-urls": {}
+}

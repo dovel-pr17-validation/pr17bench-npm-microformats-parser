@@ -1,0 +1,15 @@
+{
+  "rels": {
+    "me": ["http://example.com"],
+    "home": ["http://example.com"],
+    "example": ["http://example.com"]
+  },
+  "rel-urls": {
+    "http://example.com": {
+      "rels": ["example", "home", "me"],
+      "text": "My name",
+      "type": "text/html"
+    }
+  },
+  "items": []
+}

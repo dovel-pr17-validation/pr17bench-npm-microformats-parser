@@ -1,0 +1,57 @@
+name: Build and test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  TZ: Europe/London
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint code
+        run: npm run lint
+      - name: Run prettier list
+        run: npm run prettier:list
+      - name: Test code
+        run: npm run test
+      - name: Build package
+        run: npm run build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist
+  test_dist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [build_and_test]
+    strategy:
+      matrix:
+        node: [18, 20, 22, 24]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Download build artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist
+      - name: Test package
+        run: npm run test:package
